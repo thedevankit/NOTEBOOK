@@ -1,0 +1,87 @@
+ 
+<!DOCTYPE html>
+<html>
+<head>
+<title>Create Account</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- Custom Theme files -->
+<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- web font -->
+</head>
+<body>
+	<!-- main -->
+	<div class="main-agileits">
+		<h1> Create Account</h1>
+		<div class="main-row">
+			<ul class="steps">
+				<li class="is-active">Step 1</li>
+				<li>Step 2</li>
+				<li>Step 3</li>
+			</ul>
+			<form class="form-wrapper" action="#" method="post">
+				<fieldset class="section is-active"> 
+					<h3>Your Details</h3>
+					<input type="text" name="name" id="name" placeholder="Your Name" required="">
+					<input type="email" name="email" id="email" placeholder="Your Email" required=""><BR>
+					<font style="color:red">*Have account, please Login</font>>
+					<div class="button">Next</div>
+					<a href="login.html"><div class="button2">LOGIN</div></a>  
+				</fieldset>
+				<fieldset class="section">
+					<h3>Account Type</h3>
+					<div class="row cf">
+						
+						<textarea class="text1"  placeholder="Write about Your Self."></textarea>
+						<div class="four w3grids-agile">
+							
+						</div>
+					
+					</div>
+					<div class="button">Next</div>
+				</fieldset>
+				<fieldset class="section">
+					<h3>Choose a Password</h3>
+					<input type="password" name="password" id="password" placeholder="Password">
+					<input type="password" name="password2" id="password2" placeholder="Re-enter Password">
+					<input class="submit button" type="submit" value="Sign Up">
+				</fieldset>
+				<fieldset class="section">
+					<h3>Account Created !</h3>
+					<p>Your account has been created successfully. please Login</p>
+					<div class="button">Reset</div>
+					<a href="login.html"><div class="button2">LOGIN</div></a> 
+				</fieldset>
+			</form>
+		</div>	
+	</div>	
+	<!-- //main --> 
+		
+	<!-- js -->
+	<script src="js/jquery-2.2.3.min.js"></script> 
+	<script>
+		$(document).ready(function(){
+		  $(".form-wrapper .button").click(function(){
+			var button = $(this);
+			var currentSection = button.parents(".section");
+			var currentSectionIndex = currentSection.index();
+			var headerSection = $('.steps li').eq(currentSectionIndex);
+			currentSection.removeClass("is-active").next().addClass("is-active");
+			headerSection.removeClass("is-active").next().addClass("is-active");
+
+			$(".form-wrapper").submit(function(e) {
+			  e.preventDefault();
+			});
+
+			if(currentSectionIndex === 3){
+			  $(document).find(".form-wrapper .section").first().addClass("is-active");
+			  $(document).find(".steps li").first().addClass("is-active");
+			}
+		  });
+		});
+	</script> 	
+	<!-- //js --> 
+</body>
+</html>
